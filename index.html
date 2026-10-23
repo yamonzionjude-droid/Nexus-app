@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#090b12">
+<title>Gaming Hub</title>
+<style>
+:root{--bg:#090b12;--panel:#121624;--panel2:#191f31;--text:#f4f6ff;--muted:#9ba5bd;--cyan:#54f4dc;--purple:#9b7bff;--line:#252c40}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top right,#1b1740 0,transparent 40%),var(--bg);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,sans-serif}
+header{padding:24px 18px 12px;position:sticky;top:0;background:#090b12ed;backdrop-filter:blur(14px);z-index:2;border-bottom:1px solid #ffffff0b}
+.brand{display:flex;align-items:center;gap:11px}.logo{height:43px;width:43px;border-radius:14px;background:linear-gradient(135deg,var(--cyan),var(--purple));display:grid;place-items:center;color:#080b12;font-size:23px;font-weight:900;box-shadow:0 0 25px #8e7aff35}
+h1{font-size:20px;margin:0;letter-spacing:.3px}.sub{color:var(--muted);font-size:12px;margin-top:3px}
+main{padding:16px 16px 90px;max-width:760px;margin:auto}.hero{padding:21px;border:1px solid #7668c444;border-radius:23px;background:linear-gradient(135deg,#25204a,#141a2a 65%,#102e36);overflow:hidden;position:relative}
+.eyebrow{font-size:11px;letter-spacing:2px;color:var(--cyan);font-weight:800}.hero h2{font-size:29px;line-height:1.08;margin:12px 0 9px;max-width:280px}.hero p{color:#c0c7dc;line-height:1.5;font-size:13px;max-width:310px}.hero .orb{position:absolute;right:-28px;top:24px;font-size:112px;opacity:.18;transform:rotate(-18deg)}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:11px 14px;background:var(--cyan);color:#071313;font-weight:800;text-decoration:none;display:inline-block;font-size:12px}.btn.secondary{background:#ffffff0c;border:1px solid #ffffff20;color:var(--text)}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:23px 2px 12px}.section-head h3{margin:0;font-size:17px}.hint{font-size:11px;color:var(--muted)}
+.search{width:100%;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:14px;padding:13px 14px;font-size:14px;outline:none;margin-top:15px}.search:focus{border-color:var(--purple)}
+.filters{display:flex;gap:8px;overflow:auto;padding:12px 0 2px}.chip{white-space:nowrap;border:1px solid var(--line);color:var(--muted);background:var(--panel);padding:8px 13px;border-radius:100px;font-size:12px}.chip.active{background:#2a2550;border-color:#7865df;color:#fff}
+.games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.game{border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,#171c2c,#10131e);padding:12px;min-width:0}.cover{height:98px;border-radius:13px;display:grid;place-items:center;font-size:42px;margin-bottom:12px;background:linear-gradient(135deg,#193c4b,#25204b)}.game:nth-child(3n+2) .cover{background:linear-gradient(135deg,#53331f,#3c204e)}.game:nth-child(3n) .cover{background:linear-gradient(135deg,#1b4739,#182b50)}
+.game h4{margin:0 0 4px;font-size:14px}.meta{font-size:11px;color:var(--muted);margin-bottom:12px}.game .btn{width:100%;text-align:center;padding:10px 6px}.empty{grid-column:1/-1;padding:25px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:15px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px}.panel p{color:var(--muted);font-size:13px;line-height:1.5}.quick{display:flex;gap:10px;align-items:center;margin:12px 0}.quick-icon{width:40px;height:40px;border-radius:12px;background:var(--panel2);display:grid;place-items:center;font-size:20px}.quick strong{display:block;font-size:13px}.quick small{color:var(--muted);font-size:11px}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-around;padding:11px 5px calc(11px + env(safe-area-inset-bottom));background:#0b0d16f5;border-top:1px solid var(--line);backdrop-filter:blur(18px);z-index:3}nav button{background:none;border:0;color:var(--muted);font-size:11px;padding:4px 9px}nav button span{display:block;font-size:19px;margin-bottom:3px}nav button.active{color:var(--cyan)}
+.page{display:none}.page.active{display:block}.foot{text-align:center;color:#65708a;font-size:10px;padding:22px 5px 0}
+@media(min-width:560px){.games{grid-template-columns:repeat(3,minmax(0,1fr))}.cover{height:120px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">G</div><div><h1>GAMING HUB</h1><div class="sub">YOUR GAMES. YOUR ZONE.</div></div></div></header>
+<main>
+<section id="home" class="page active">
+<div class="hero"><div class="orb">🎮</div><div class="eyebrow">PLAYER DASHBOARD</div><h2>Ready to<br>level up?</h2><p>Your pocket-sized gaming library. Discover games and jump to their official download pages.</p><div class="actions"><button class="btn" onclick="showPage('library')">EXPLORE GAMES ↗</button><button class="btn secondary" onclick="showPage('about')">ABOUT HUB</button></div></div>
+<div class="section-head"><h3>Quick picks</h3><span class="hint">CURATED LINKS</span></div>
+<div class="panel">
+<div class="quick"><div class="quick-icon">🧱</div><div style="flex:1"><strong>Minecraft</strong><small>Sandbox · Official store</small></div><a class="btn" href="https://play.google.com/store/search?q=minecraft&c=apps">OPEN</a></div>
+<div class="quick"><div class="quick-icon">🚗</div><div style="flex:1"><strong>Asphalt Legends Unite</strong><small>Racing · Official store</small></div><a class="btn" href="https://play.google.com/store/search?q=Asphalt%20Legends&c=apps">OPEN</a></div>
+<div class="quick"><div class="quick-icon">🕹️</div><div style="flex:1"><strong>Roblox</strong><small>Multiplayer · Official store</small></div><a class="btn" href="https://play.google.com/store/search?q=Roblox&c=apps">OPEN</a></div>
+</div>
+<div class="foot">Gaming Hub is an independent game-discovery app.</div>
+</section>
+<section id="library" class="page">
+<div class="section-head"><h3>Game library</h3><span class="hint" id="count">6 GAMES</span></div>
+<input id="search" class="search" placeholder="⌕  Search games..." autocomplete="off">
+<div class="filters"><button class="chip active" data-filter="All">All</button><button class="chip" data-filter="Sandbox">Sandbox</button><button class="chip" data-filter="Racing">Racing</button><button class="chip" data-filter="Action">Action</button><button class="chip" data-filter="Casual">Casual</button></div>
+<div id="games" class="games"></div>
+<div class="foot">Downloads open official store or publisher pages. Availability varies by device and region.</div>
+</section>
+<section id="downloads" class="page">
+<div class="section-head"><h3>Download center</h3></div>
+<div class="panel"><div style="font-size:36px">🛡️</div><h3>Download safely</h3><p>Choose a game in the library and use its official store or publisher link. Gaming Hub does not host game APKs or promise compatibility. Check the developer and permissions before installing anything.</p><button class="btn" onclick="showPage('library')">BROWSE GAME LINKS</button></div>
+<div class="section-head"><h3>Safe install checklist</h3></div>
+<div class="panel"><div class="quick"><div class="quick-icon">✓</div><div><strong>Use official sources</strong><small>Google Play or the game's publisher</small></div></div><div class="quick"><div class="quick-icon">✓</div><div><strong>Check storage and requirements</strong><small>Some games need extra space or internet</small></div></div><div class="quick"><div class="quick-icon">✓</div><div><strong>Avoid suspicious APK sites</strong><small>Never share your password or verification codes</small></div></div></div>
+</section>
+<section id="about" class="page">
+<div class="section-head"><h3>About Gaming Hub</h3></div>
+<div class="panel"><div class="logo" style="margin-bottom:15px">G</div><h2>Made for gamers.</h2><p>Gaming Hub is a lightweight game-discovery dashboard built for Android. Search and filter the starter library, then open official download pages in your browser.</p><p><b>Version:</b> 1.0<br><b>Design:</b> Dark / neon<br><b>Privacy:</b> No account required. Search and filters run on your device.</p><button class="btn secondary" onclick="showPage('home')">BACK HOME</button></div>
+</section>
+</main>
+<nav><button class="active" data-page="home"><span>⌂</span>Home</button><button data-page="library"><span>▦</span>Library</button><button data-page="downloads"><span>⇩</span>Downloads</button><button data-page="about"><span>ⓘ</span>About</button></nav>
+<script>
+const games=[
+{name:"Minecraft",category:"Sandbox",icon:"🧱",desc:"Build & explore",url:"https://play.google.com/store/search?q=minecraft&c=apps"},
+{name:"Roblox",category:"Action",icon:"🕹️",desc:"Play millions of worlds",url:"https://play.google.com/store/search?q=Roblox&c=apps"},
+{name:"Asphalt Legends",category:"Racing",icon:"🏎️",desc:"Arcade racing",url:"https://play.google.com/store/search?q=Asphalt%20Legends&c=apps"},
+{name:"Hill Climb Racing",category:"Racing",icon:"🚙",desc:"Physics driving fun",url:"https://play.google.com/store/search?q=Hill%20Climb%20Racing&c=apps"},
+{name:"Among Us",category:"Casual",icon:"👾",desc:"Social deduction",url:"https://play.google.com/store/search?q=Among%20Us&c=apps"},
+{name:"Stumble Guys",category:"Action",icon:"🏃",desc:"Party knockout game",url:"https://play.google.com/store/search?q=Stumble%20Guys&c=apps"}
+];
+let activeFilter="All";
+function renderGames(){const q=document.getElementById("search").value.trim().toLowerCase();const list=games.filter(g=>(activeFilter==="All"||g.category===activeFilter)&&(g.name+" "+g.category+" "+g.desc).toLowerCase().includes(q));document.getElementById("count").textContent=list.length+" GAMES";document.getElementById("games").innerHTML=list.length?list.map(g=>`<article class="game"><div class="cover">${g.icon}</div><h4>${g.name}</h4><div class="meta">${g.category} · ${g.desc}</div><a class="btn" href="${g.url}">GET GAME ↗</a></article>`).join(""):'<div class="empty">No games found. Try another search.</div>';}
+function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));if(id==="library")renderGames();window.scrollTo(0,0)}
+document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{activeFilter=b.dataset.filter;document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c===b));renderGames()}));
+document.getElementById("search").addEventListener("input",renderGames);
+renderGames();
+</script>
+</body>
+</html>
